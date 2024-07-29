@@ -17,6 +17,9 @@ public class ContactPersonMapper implements Mapper<ContactPersonDto, ContactPers
 
     @Override
     public ContactPerson dtoToEntity(ContactPersonDto dto) {
+        if (dto == null) {
+            return null;
+        }
         ContactPerson contactPerson = new ContactPerson();
         contactPerson.setId(dto.id());
         contactPerson.setLabor(dto.labor());
@@ -58,6 +61,9 @@ public class ContactPersonMapper implements Mapper<ContactPersonDto, ContactPers
 
     @Override
     public ContactPersonDto entityToDto(ContactPerson entity) {
+        if (entity == null) {
+            return null;
+        }
         return ContactPersonDto.builder()
                 .id(entity.getId())
                 .labor(entity.getLabor())

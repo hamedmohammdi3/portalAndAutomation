@@ -20,8 +20,7 @@ public class ContactsDetail extends BaseEntity {
     @Column(name = "C_CREATOR")
     private String creator;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "F_DETIALS", nullable = false)
     private Contact detials;
 

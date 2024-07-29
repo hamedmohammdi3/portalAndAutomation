@@ -1,0 +1,18 @@
+
+spring:
+  application:
+    name: Pat
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/XEPDB1
+    username: pat_dev
+    password: pat_pass
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.OracleDialect
+    database: oracle
+    show-sql: true
+server:
+  port: 8082

@@ -3,6 +3,7 @@ package com.hamed.pat.mapper;
 import com.hamed.pat.dtos.*;
 import com.hamed.pat.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,9 @@ public class LetterMapper implements Mapper<LetterDto, Letter> {
 
     @Override
     public Letter dtoToEntity(LetterDto letterDto) {
+        if (letterDto == null) {
+            return null;
+        }
         Letter letter = new Letter();
         letter.setId(letterDto.id());
         letter.setAttachmentSet(attachmentMapper.dtoListToEntities(letterDto.attachmentSet()));
@@ -73,6 +77,9 @@ public class LetterMapper implements Mapper<LetterDto, Letter> {
 
     @Override
     public LetterDto entityToDto(Letter letter) {
+        if(letter == null){
+            return null;
+        }
     return LetterDto.builder()
             .id(letter.getId())
             .attachmentSet(attachmentMapper.entitiesToDtoList(letter.getAttachmentSet()))
@@ -127,7 +134,8 @@ public class LetterMapper implements Mapper<LetterDto, Letter> {
     }
 
     @Autowired
-    public LetterMapper(AttachmentMapper attachmentMapper,
+    @Lazy
+    public LetterMapper(Mapper<AttachmentDto,Attachment> attachmentMapper,
                         CategoryElementMapper categoryElementMapper,
                         ContactPersonMapper contactPersonMapper,
                         RelatedLetterMapper relatedLetterMapper,

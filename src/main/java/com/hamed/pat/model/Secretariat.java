@@ -19,17 +19,14 @@ public class Secretariat extends BaseEntity {
     private Boolean isDefault = false;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_LETTER_CTG_TYPE_ID")
     private CategoryElement letterCtgType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_LETTER_NATION_ID")
     private CategoryElement letterNation;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_PARENT_ID")
     private Secretariat parent;
 

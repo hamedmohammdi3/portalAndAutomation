@@ -1,21 +1,29 @@
 package com.hamed.pat.model;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 @MappedSuperclass
+@Getter
+@Setter
 public abstract class BaseEntity implements Serializable {
     @Id
     @Column(name = "C_ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "C_ACTIVE")
     private Boolean active = true;
 
     @Column(name = "C_VERSION", nullable = false)
-    private Long version;
+    @Version
+    private long version;
 
     @Column(name = "C_INSERTTIME")
     private Timestamp insertTime;
@@ -31,66 +39,5 @@ public abstract class BaseEntity implements Serializable {
     @Column(name = "C_UPDATEUSER")
     private String updatingUser;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
-    public String getInsertingUser() {
-        return insertingUser;
-    }
-
-    public void setInsertingUser(String insertingUser) {
-        this.insertingUser = insertingUser;
-    }
-
-    public String getUpdatingUser() {
-        return updatingUser;
-    }
-
-    public void setUpdatingUser(String updatingUser) {
-        this.updatingUser = updatingUser;
-    }
-
-
-    public long getVersion() {
-        return version;
-    }
-
-    public void setVersion(long version) {
-        this.version = version;
-    }
-
-    public Boolean getActive() {
-        return active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
-    }
-
-    public Timestamp getInsertTime() {
-        return insertTime;
-    }
-
-    public void setInsertTime(Timestamp insertTime) {
-        this.insertTime = insertTime;
-    }
-
-    public Timestamp getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Timestamp updateTime) {
-        this.updateTime = updateTime;
-    }
 }
 

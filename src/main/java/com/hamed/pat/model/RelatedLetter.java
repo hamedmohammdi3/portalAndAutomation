@@ -9,17 +9,14 @@ import org.hibernate.annotations.OnDeleteAction;
 public class RelatedLetter extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_RELATED_LET_ID")
     private Letter relatedLet;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_LET_ID")
     private Letter let;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_RELATED_LET_TYPE_ID")
     private CategoryElement relatedLetType;
 

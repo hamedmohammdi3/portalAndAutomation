@@ -10,7 +10,6 @@ import org.hibernate.annotations.OnDeleteAction;
 public class SecretariatUser extends BaseEntity{
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_SEC_USER_ID")
     private Secretariat secUser;
 

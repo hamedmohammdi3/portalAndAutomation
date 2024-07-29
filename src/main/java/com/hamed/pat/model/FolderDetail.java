@@ -11,7 +11,6 @@ public class FolderDetail extends BaseEntity{
     private Long flowId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_FOLDER_ID", nullable = false)
     private Folder folder;
 

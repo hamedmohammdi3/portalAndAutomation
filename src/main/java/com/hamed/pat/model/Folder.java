@@ -27,7 +27,6 @@ public class Folder  extends  BaseEntity{
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_PARENT_FOLDER_ID")
     private Folder parentFolder;
 

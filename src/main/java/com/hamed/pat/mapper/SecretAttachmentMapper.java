@@ -11,6 +11,9 @@ import java.util.stream.Collectors;
 public class SecretAttachmentMapper implements Mapper<SecretAttachmentDto, SecretAttachment>{
     @Override
     public SecretAttachment dtoToEntity(SecretAttachmentDto dto) {
+        if (dto == null) {
+            return null;
+        }
         SecretAttachment secretAttachment = new SecretAttachment();
         secretAttachment.setId(dto.id());
         secretAttachment.setVrAttachmentDocument(dto.vrAttachmentDocument());
@@ -29,6 +32,9 @@ public class SecretAttachmentMapper implements Mapper<SecretAttachmentDto, Secre
 
     @Override
     public SecretAttachmentDto entityToDto(SecretAttachment entity) {
+        if (entity == null) {
+            return null;
+        }
         return SecretAttachmentDto.builder()
                 .id(entity.getId())
                 .description(entity.getDescription())

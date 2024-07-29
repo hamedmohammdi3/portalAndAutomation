@@ -22,6 +22,9 @@ public class SecretariatInfoMapper implements Mapper<SecretariatInfoDto, Secreta
 
     @Override
     public SecretariatInfo dtoToEntity(SecretariatInfoDto dto) {
+        if (dto == null) {
+            return null;
+        }
         SecretariatInfo secretariatInfo = new SecretariatInfo();
         secretariatInfo.setDeliveryReceiptNo(dto.deliveryReceiptNo());
         secretariatInfo.setSystemPerson(dto.systemPerson());
@@ -49,6 +52,9 @@ public class SecretariatInfoMapper implements Mapper<SecretariatInfoDto, Secreta
 
     @Override
     public SecretariatInfoDto entityToDto(SecretariatInfo entity) {
+        if (entity == null) {
+            return null;
+        }
         return SecretariatInfoDto.builder()
                 .deliveryReceiptNo(entity.getDeliveryReceiptNo())
                 .systemPerson(entity.getSystemPerson())

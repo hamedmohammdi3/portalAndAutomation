@@ -6,6 +6,7 @@ import com.hamed.pat.mapper.Mapper;
 import com.hamed.pat.model.Letter;
 import com.hamed.pat.repository.LetterRepository;
 import com.hamed.pat.validation.LetterValidation;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +18,10 @@ public class InsertLetter {
     LetterValidation letterValidation;
     @Autowired
     LetterRepository letterRepository;
-    public Letter insertLetter(LetterDto letterDto){
+    public Long insertLetter(LetterDto letterDto){
         letterValidation.LetterInsertValidate(letterDto);
         Letter letter = letterMapper.dtoToEntity(letterDto);
-
         Letter save = letterRepository.save(letter);
-        return save;
+        return save.getId();
     }
 }

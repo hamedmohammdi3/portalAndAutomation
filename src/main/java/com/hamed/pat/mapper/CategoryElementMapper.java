@@ -11,6 +11,9 @@ import java.util.stream.Collectors;
 public class CategoryElementMapper implements Mapper<CategoryElementDto, CategoryElement> {
     @Override
     public CategoryElement dtoToEntity(CategoryElementDto dto) {
+        if (dto == null) {
+            return null;
+        }
         CategoryElement categoryElement = new CategoryElement();
         categoryElement.setValue(dto.value());
         categoryElement.setCode(dto.code());
@@ -29,6 +32,9 @@ public class CategoryElementMapper implements Mapper<CategoryElementDto, Categor
 
     @Override
     public CategoryElementDto entityToDto(CategoryElement entity) {
+        if (entity == null) {
+            return null;
+        }
         return CategoryElementDto.builder()
                 .value(entity.getValue())
                 .code(entity.getCode())

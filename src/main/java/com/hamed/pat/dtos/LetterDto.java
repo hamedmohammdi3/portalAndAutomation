@@ -1,6 +1,8 @@
 package com.hamed.pat.dtos;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
+import lombok.ToString;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ public record LetterDto(
         Long id,
         List<AttachmentDto> attachmentSet,
         String checkAttach,
+        @NotEmpty
         String subject,
         CategoryElementDto forAction,
         List<RelatedLetterDto> relatedLetter,

@@ -21,7 +21,7 @@ public class ContactPerson extends BaseEntity {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_FOR_ACTION_FLOW")
     private CategoryElement forActionFlow;
 
@@ -38,37 +38,37 @@ public class ContactPerson extends BaseEntity {
     private String vrPost;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_BCC_PERSON_ID")
     private Letter bccPerson;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_CC_PERSON_ID")
     private Letter ccPerson;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_TO_PERSON_ID")
     private Letter toPerson;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_CC_FLOW_PERSON_ID")
     private LetterFlow ccFlowPerson;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_FLOW_PERSON_ID")
     private LetterFlow flowPerson;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_FROM_SEC_PERSON_ID")
     private Secretariat fromSecPerson;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_TO_SEC_PERSON_ID")
     private Secretariat toSecPerson;
 
@@ -80,7 +80,7 @@ public class ContactPerson extends BaseEntity {
     private String deliveryInfo;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_PERSON_DEL_TYPE")
     private CategoryElement personDelType;
 
@@ -97,7 +97,7 @@ public class ContactPerson extends BaseEntity {
     private String vrTitle;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_TO_ORG_ID")
     private Letter toOrg;
 
@@ -113,12 +113,12 @@ public class ContactPerson extends BaseEntity {
     private String vrPostId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_RECEIVER_REFERRAL_ID")
     private Letter receiverReferral;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_MEMBER_ID")
     private GroupsUser member;
 
@@ -130,7 +130,7 @@ public class ContactPerson extends BaseEntity {
     private String rowType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_OFFICER_SECRETARIAT")
     private Secretariat officerSecretariat;
 
@@ -139,7 +139,7 @@ public class ContactPerson extends BaseEntity {
     private String jobTitle;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_REFERRALREPRIORITY")
     private CategoryElement referralrepriority;
 
@@ -154,7 +154,7 @@ public class ContactPerson extends BaseEntity {
     private Boolean publicAttachment;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+
     @JoinColumn(name = "F_SIGNER_PERSON_ID")
     private Letter signerPerson;
 

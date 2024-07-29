@@ -13,7 +13,6 @@ public class ReservedNumber extends BaseEntity {
     @Column(name = "C_NO")
     private String no;
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_RESERVED_ID")
     private Secretariat reserved;
 

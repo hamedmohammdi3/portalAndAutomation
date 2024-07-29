@@ -15,7 +15,6 @@ public class LetterFlow extends BaseEntity {
     private String actionType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_APPROV_RESULT_ID")
     private CategoryElement approvResult;
 
@@ -27,7 +26,6 @@ public class LetterFlow extends BaseEntity {
     private Boolean isOriginal = false;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_LETTER_ID", nullable = false)
     private Letter letter;
 
@@ -35,7 +33,6 @@ public class LetterFlow extends BaseEntity {
     private Boolean needMoreApprove = false;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_PARENT_FLOW_ID")
     private LetterFlow parentFlow;
 

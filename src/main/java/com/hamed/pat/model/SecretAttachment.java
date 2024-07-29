@@ -9,7 +9,6 @@ import org.hibernate.annotations.OnDeleteAction;
 @Table(name = "T_PAT_SECRET_ATTACHMENT")
 public class SecretAttachment extends BaseEntity{
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_ATTACH_ID")
     private SecretariatInfo attach;
 

@@ -20,6 +20,9 @@ public class RelatedLetterMapper implements Mapper<RelatedLetterDto, RelatedLett
     private final Mapper<CategoryElementDto, CategoryElement> categoryElementMapper;
     @Override
     public RelatedLetter dtoToEntity(RelatedLetterDto dto) {
+        if (dto == null) {
+            return null;
+        }
         RelatedLetter relatedLetter = new RelatedLetter();
         relatedLetter.setId(dto.id());
         relatedLetter.setRelatedLet(letterMapper.dtoToEntity(dto.letter()));
@@ -38,6 +41,9 @@ public class RelatedLetterMapper implements Mapper<RelatedLetterDto, RelatedLett
 
     @Override
     public RelatedLetterDto entityToDto(RelatedLetter entity) {
+        if (entity == null) {
+            return null;
+        }
         return RelatedLetterDto.builder()
                 .letter(letterMapper.entityToDto(entity.getLet()))
                 .relatedLetterType(categoryElementMapper.entityToDto(entity.getRelatedLetType()))

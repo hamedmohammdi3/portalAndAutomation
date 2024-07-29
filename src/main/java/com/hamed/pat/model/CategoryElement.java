@@ -1,5 +1,7 @@
 package com.hamed.pat.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Nationalized;
 import org.hibernate.annotations.OnDelete;
@@ -9,10 +11,12 @@ import org.hibernate.annotations.OnDeleteAction;
 @Table(name = "T_PAT_CATEGORY_ELEMENT")
 public class CategoryElement extends BaseEntity{
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "F_CATEGORY_ID", nullable = false)
+    @JsonBackReference
     private Category category;
+
+
 
     @Nationalized
     @Column(name = "C_CODE", nullable = false)

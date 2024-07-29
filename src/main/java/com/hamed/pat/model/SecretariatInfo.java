@@ -24,7 +24,6 @@ public class SecretariatInfo extends BaseEntity {
     private String deliveryReceiptNo;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_DEL_TYPE_ID")
     private CategoryElement deliveryType;
 
@@ -39,7 +38,6 @@ public class SecretariatInfo extends BaseEntity {
     @Column(name = "C_SYSTEM_PERSON", nullable = false)
     private Boolean systemPerson = false;
     @OneToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.RESTRICT)
     @JoinColumn(name = "F_SENDER_ID")
     private ContactPerson sender;
 

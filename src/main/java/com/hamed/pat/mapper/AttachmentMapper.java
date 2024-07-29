@@ -16,6 +16,9 @@ public class AttachmentMapper implements Mapper<AttachmentDto, Attachment>{
     public final Mapper<LetterDto, Letter> letterMapper;
     @Override
     public Attachment dtoToEntity(AttachmentDto attachmentDto) {
+        if (attachmentDto == null) {
+            return null;
+        }
         Attachment attachment = new Attachment();
         attachment.setId(attachmentDto.id());
         attachment.setAttach(letterMapper.dtoToEntity(attachmentDto.attach()));
@@ -35,6 +38,9 @@ public class AttachmentMapper implements Mapper<AttachmentDto, Attachment>{
 
     @Override
     public AttachmentDto entityToDto(Attachment attachment) {
+        if (attachment == null) {
+            return null;
+        }
         return AttachmentDto.builder()
                 .id(attachment.getId())
                 .attach(letterMapper.entityToDto(attachment.getAttach()))
