@@ -1,5 +1,6 @@
 package com.hamed.pat.mapper;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hamed.pat.dtos.*;
 import com.hamed.pat.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
